@@ -17,9 +17,9 @@ class App
     {
         $router = new Router();
         $router->setNamespace('App\Controllers');
-        $router->get('/', 'ProductController@getProducts');
-        $router->post('/addProduct', 'ProductController@addProduct');
-        $router->post('/deleteProducts', 'ProductController@deleteProducts');
+        $router->get('/api', 'ProductController@getProducts');
+        $router->post('/api/addProduct', 'ProductController@addProduct');
+        $router->post('/api/deleteProducts', 'ProductController@deleteProducts');
         $router->run();
     }
 
