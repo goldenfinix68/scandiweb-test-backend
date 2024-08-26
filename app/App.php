@@ -2,10 +2,17 @@
 
 namespace App;
 
+use Dotenv\Dotenv;
 use Bramus\Router\Router;
 
 class App
 {
+    private static function loadEnvironmentVariables(): void
+    {
+        $dotenv = Dotenv::createImmutable(dirname(__DIR__));
+        $dotenv->safeLoad();
+    }
+
     private static function setRoutes(): void
     {
         $router = new Router();
@@ -18,6 +25,7 @@ class App
 
     public static function run(): void
     {
+        self::loadEnvironmentVariables();
         self::setRoutes();
     }
 }
